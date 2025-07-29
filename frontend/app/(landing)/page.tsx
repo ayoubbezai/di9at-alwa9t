@@ -1,8 +1,10 @@
-import { Button } from "@/components/ui/button";
+import OurMission from "@/components/landing/OurMisson";
+import AboutUs from "@/components/landing/AboutUs";
 export default function Home() {
   return (
-    <div>
-      <Button>hello world</Button>
-    </div>
+    <>
+      <OurMission />
+      <AboutUs />
+    </>
   );
 }
