@@ -5,8 +5,8 @@ import CarImage2 from "../../assets/images/our_service/card2.webp";
 import CarImage3 from "../../assets/images/our_service/card3.jpg";
 
 type CardType = {
-  title: String;
-  description: String;
+  title: string;
+  description: string;
   image: StaticImport;
 };
 const cardData: CardType[] = [
