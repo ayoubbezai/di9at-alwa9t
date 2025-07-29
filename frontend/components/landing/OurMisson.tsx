@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
-import Left_Image from "../../assets/images/left_misson_image.png";
-import Right_Image from "../../assets/images/right_mission_image.png";
+import Left_Image from "../../assets/images/our_mission/left_misson_image.png";
+import Right_Image from "../../assets/images/our_mission/right_mission_image.png";
 export default function OurMission() {
   return (
     <section className="flex flex-col md:flex-row items-center justify-between px-6 py-8  w-full mx-auto md:px-0 gap-12 ">

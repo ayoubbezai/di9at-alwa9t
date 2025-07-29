@@ -1,5 +1,5 @@
 import Image from "next/image";
-import AboutUsImage from "../../assets/images/about_us.png";
+import AboutUsImage from "../../assets/images/about_us/about_us.png";
 import "../../style/about.css";
 
 type LabelProps = {
