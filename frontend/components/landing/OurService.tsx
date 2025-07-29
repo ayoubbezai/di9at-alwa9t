@@ -59,7 +59,7 @@ const Card = ({ title, description, image }: CardType) => {
 export default function OurService() {
   return (
     <div className="flex flex-col items-center justify-center w-full mx-auto py-12 px-6">
-      <h1 className="text-2xl md:text-5xl font-bold text-center text-primary-dark mb-12">
+      <h1 className="text-4xl md:text-5xl font-bold text-center text-primary-dark mb-12">
         Our Service
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-8   w-full px-4 md:px-0">
