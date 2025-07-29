@@ -26,10 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0`}
       >
-        <NaNvBar />
-        <div className="container max-w-7xl w-full  mx-auto">{children}</div>
+        {/* <NaNvBar /> */}
+        <div className=" w-full m-0 p-0 overflow-x-hidden ">{children}</div>
       </body>
     </html>
   );
