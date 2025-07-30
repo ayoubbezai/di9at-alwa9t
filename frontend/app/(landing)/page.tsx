@@ -21,6 +21,10 @@ const OurService = dynamic(() => import("@/components/landing/OurService"), {
   ssr: false,
   loading: () => null,
 });
+const WhyUs = dynamic(() => import("@/components/landing/WhyUs"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Home() {
   const [showSections, setShowSections] = useState(false);
@@ -41,6 +45,7 @@ export default function Home() {
           <OurMission />
           <AboutUs />
           <OurService />
+          <WhyUs />
         </>
       )}
     </>

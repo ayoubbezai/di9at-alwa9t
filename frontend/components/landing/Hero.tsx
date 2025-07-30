@@ -109,7 +109,7 @@ export default function Hero() {
 
       {/* Mobile Carousel */}
       <motion.div
-        className="flex lg:hidden w-full snap-x snap-mandatory overflow-x-auto px-8 gap-x-4 mt-4 justify-start"
+        className="flex lg:hidden w-full  snap-x snap-mandatory overflow-x-auto px-8 gap-x-4 mt-4 justify-start"
         id="carousel"
         variants={container}
         initial="hidden"
@@ -119,7 +119,7 @@ export default function Hero() {
           <motion.div
             key={image.id}
             onClick={() => setActiveId(image.id)}
-            className="min-w-[200px] flex flex-shrink-0 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+            className="min-w-[200px] flex flex-shrink-0 rounded-xl overflow-auto shadow-lg cursor-pointer"
             variants={item}
             whileTap={{ scale: 0.97 }}
             whileHover={{ scale: 1.03 }}

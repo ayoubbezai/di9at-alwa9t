@@ -32,7 +32,7 @@ const cardData: CardType[] = [
 
 const Card = ({ title, description, image }: CardType) => {
   return (
-    <div className="bg-[#fefefe] shadow-[0_8px_28px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] pb-8 rounded-xl mx-auto w-full md:w-5/6 transition-shadow duration-300 ease-in-out">
+    <div className="bg-gray-50 shadow-[0_4px_16px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] pb-8 rounded-xl mx-auto w-full md:w-5/6 transition-shadow duration-300 ease-in-out">
       {/* Image container with gradient overlay */}
       <div className="relative w-full h-[200px]">
         <Image
