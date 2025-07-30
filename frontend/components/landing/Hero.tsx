@@ -59,6 +59,7 @@ export default function Hero() {
         className="object-cover -z-10"
         placeholder="blur"
         priority
+        sizes="100vw"
       />
 
       <NavBarWhite />
