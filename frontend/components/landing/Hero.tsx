@@ -1,16 +1,16 @@
 "use client";
 
-import HeroImage from "@/assets/background/hero_bg.webp";
-import NavBarWhite from "@/components/landing/NavBarWhite";
 import { useState } from "react";
 import Image from "next/image";
-import Imgae1 from "../../assets/images/hero/hero1.webp";
-import Imgae2 from "../../assets/images/hero/hero2.webp";
-import Imgae3 from "../../assets/images/hero/hero3.webp";
+import HeroImage from "@/assets/background/hero_bg.webp";
+import NavBarWhite from "@/components/landing/NavBarWhite";
+import Image1 from "@/assets/images/hero/hero1.webp";
+import Image2 from "@/assets/images/hero/hero2.webp";
+import Image3 from "@/assets/images/hero/hero3.webp";
 import { Button } from "../ui/button";
-import type { StaticImport } from "next/dist/shared/lib/get-img-props";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import "@/style/hero.css";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 type ImagesType = {
   id: number;
@@ -19,13 +19,13 @@ type ImagesType = {
 };
 
 const images: ImagesType[] = [
-  { id: 1, src: Imgae1, alt: "Image 1" },
-  { id: 2, src: Imgae2, alt: "Image 2" },
-  { id: 3, src: Imgae3, alt: "Image 3" },
+  { id: 1, src: Image1, alt: "Image 1" },
+  { id: 2, src: Image2, alt: "Image 2" },
+  { id: 3, src: Image3, alt: "Image 3" },
 ];
 
-// Framer Motion Variants
-const container = {
+// Animation Variants
+const container: Variants = {
   hidden: {},
   show: {
     transition: {
@@ -34,14 +34,14 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 40 },
   show: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1], // Valid easing
     },
   },
 };
@@ -51,7 +51,7 @@ export default function Hero() {
 
   return (
     <div className="relative w-full overflow-hidden min-h-[800px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
-      {/* Optimized Background using next/image */}
+      {/* Background */}
       <Image
         src={HeroImage}
         alt="Hero Background"
@@ -60,9 +60,10 @@ export default function Hero() {
         placeholder="blur"
         priority
       />
+
       <NavBarWhite />
 
-      {/* Desktop Images */}
+      {/* Desktop Image Stacking */}
       <motion.div
         className="h-[400px] hidden lg:flex items-center justify-center gap-4 w-1/2"
         variants={container}
@@ -100,10 +101,10 @@ export default function Hero() {
         })}
       </motion.div>
 
-      {/* Mobile Images */}
+      {/* Mobile Carousel */}
       <motion.div
         className="flex lg:hidden w-full snap-x snap-mandatory overflow-x-auto px-8 gap-x-4 mt-4 justify-start"
-        id="carsoule"
+        id="carousel"
         variants={container}
         initial="hidden"
         animate="show"
@@ -130,7 +131,7 @@ export default function Hero() {
         ))}
       </motion.div>
 
-      {/* Text Content with Animation */}
+      {/* Text Content */}
       <motion.div
         className="flex flex-col text-center text-white gap-8 justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8"
         variants={container}
