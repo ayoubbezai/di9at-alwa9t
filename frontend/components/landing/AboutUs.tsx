@@ -24,7 +24,7 @@ const Label = ({ title, number }: LabelProps) => (
 );
 export default function AboutUs() {
   return (
-    <section className="flex  flex-col-reverse md:flex-row items-center justify-between my-20  px-6 py-8 w-full mx-6 lg:mx-10 md:px-0 gap-12">
+    <section className="flex  flex-col-reverse md:flex-row items-center justify-between my-20  px-6 py-8 w-full md:mx-6 lg:mx-10 md:px-0 gap-12">
       {/*  text */}
       <div className="flex flex-col justify-center items-start w-full mx-auto ">
         <h3 className="font-medium text-lg md:text-xl text-primary-dark/90 text-left mb-2">

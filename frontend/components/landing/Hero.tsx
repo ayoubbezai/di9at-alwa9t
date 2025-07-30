@@ -59,7 +59,7 @@ export default function Hero() {
       </div>
 
       <div className="flex flex-col text-center text-white gap-8 justify-center items-center lg:pr-12 w-full px-6  lg:w-1/2 mx-auto mt-8">
-        <h1 className="text-white text-xl md:text-2xl w-full  lg:text-3xl leading-10 font-bold items-center">
+        <h1 className="text-white text-2xl w-full  lg:text-3xl leading-10 font-bold items-center">
           Dikat Al Waqt provides reliable transportation services within the
           Kingdom.
         </h1>
@@ -70,10 +70,10 @@ export default function Hero() {
           around the clock.
         </p>
         <div className="flex flex-row gap-5 lg:gap-8 ">
-          <Button className="bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm  rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent px-3 lg:px-5 border-white ">
+          <Button className="bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm  rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent px-4 lg:px-5 border-white ">
             Contact Us
           </Button>
-          <Button className="bg-white text-primary-dark font-semibold  px-3 lg:px-5  py-3 lg:py-5  hover:scale-105  text-xs lg:text-sm  rounded-2xl  cursor-pointer hover:bg-white/90 ">
+          <Button className="bg-white text-primary-dark font-semibold  px-4 lg:px-5  py-3 lg:py-5  hover:scale-105  text-xs lg:text-sm  rounded-2xl  cursor-pointer hover:bg-white/90 ">
             Reserve A Trip
           </Button>
         </div>
