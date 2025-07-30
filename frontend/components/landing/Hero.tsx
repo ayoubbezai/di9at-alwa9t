@@ -52,15 +52,18 @@ export default function Hero() {
   return (
     <div className="relative w-full overflow-hidden min-h-[800px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
-      <Image
-        src={HeroImage}
-        alt="Hero Background"
-        fill
-        className="object-cover -z-10"
-        placeholder="blur"
-        priority
-        sizes="100vw"
-      />
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src={HeroImage}
+          alt="Hero Background"
+          placeholder="blur"
+          priority
+          width={1920}
+          height={1080}
+          className="object-cover w-full h-full"
+          sizes="100vw"
+        />
+      </div>
 
       <NavBarWhite />
 
@@ -134,13 +137,13 @@ export default function Hero() {
 
       {/* Text Content */}
       <motion.div
-        className="flex flex-col text-center text-white gap-8 justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8"
+        className="flex flex-col z-10 text-center text-white gap-8 justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8"
         variants={container}
         initial="hidden"
         animate="show"
       >
         <motion.h1
-          className="text-white text-2xl w-full lg:text-3xl leading-10 font-bold items-center"
+          className="text-white text-2xl w-full lg:text-3xl z-10 leading-10 font-bold items-center"
           variants={item}
         >
           Dikat Al Waqt provides reliable transportation services within the
