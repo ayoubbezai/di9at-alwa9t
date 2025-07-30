@@ -52,7 +52,7 @@ export default function Hero() {
   return (
     <div className="relative w-full overflow-hidden min-h-[800px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 -z-30">
         <Image
           src={HeroImage}
           alt="Hero Background"
@@ -97,6 +97,7 @@ export default function Hero() {
                 placeholder="blur"
                 alt={image.alt}
                 width={250}
+                sizes="(max-width: 1024px) 200px, 250px"
                 height={350}
                 className="rounded-xl object-cover"
                 priority={activeId === image.id}
@@ -129,6 +130,7 @@ export default function Hero() {
               placeholder="blur"
               width={200}
               height={300}
+              sizes="(max-width: 1024px) 200px, 250px"
               className="rounded-xl object-cover"
               priority={activeId === image.id}
             />
@@ -144,7 +146,7 @@ export default function Hero() {
         animate="show"
       >
         <motion.h1
-          className="text-white text-2xl w-full lg:text-3xl z-10 leading-10 font-bold items-center"
+          className="text-white text-2xl w-full lg:text-3xl z-20 leading-10 font-bold items-center"
           variants={item}
         >
           Dikat Al Waqt provides reliable transportation services within the
@@ -172,7 +174,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-black/45 -z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/40" />
     </div>
   );
 }
