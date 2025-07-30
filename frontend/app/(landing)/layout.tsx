@@ -25,11 +25,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0`}
       >
         {/* <NaNvBar /> */}
-        <div className=" w-full m-0 p-0 overflow-x-hidden ">{children}</div>
+        <div className=" w-full m-0 p-0 overflow-x-hidden  ">
+          {children}
+        </div>
       </body>
     </html>
   );
