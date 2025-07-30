@@ -94,6 +94,7 @@ export default function Hero() {
             >
               <Image
                 src={image.src}
+                placeholder="blur"
                 alt={image.alt}
                 width={250}
                 height={350}
