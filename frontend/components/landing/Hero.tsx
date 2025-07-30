@@ -50,12 +50,16 @@ export default function Hero() {
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div
-      className="h-screen min-h-[800px] md:min-h-screen bg-cover relative w-full z-0 bg-center flex flex-col md:flex-row items-center justify-center lg:justify-between mb-12"
-      style={{
-        backgroundImage: `url(${HeroImage.src})`,
-      }}
-    >
+    <div className="relative w-full overflow-hidden min-h-[800px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+      {/* Optimized Background using next/image */}
+      <Image
+        src={HeroImage}
+        alt="Hero Background"
+        fill
+        className="object-cover -z-10"
+        placeholder="blur"
+        priority
+      />
       <NavBarWhite />
 
       {/* Desktop Images */}
@@ -116,6 +120,7 @@ export default function Hero() {
             <Image
               src={image.src}
               alt={image.alt}
+              placeholder="blur"
               width={200}
               height={300}
               className="rounded-xl object-cover"
