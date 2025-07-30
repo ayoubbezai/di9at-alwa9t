@@ -9,6 +9,7 @@ import Imgae2 from "../../assets/images/hero/hero2.png";
 import Imgae3 from "../../assets/images/hero/hero3.png";
 import { Button } from "../ui/button";
 import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import "@/style/hero.css";
 
 type ImagesType = {
   id: number;
@@ -27,14 +28,14 @@ export default function Hero() {
 
   return (
     <div
-      className="min-h-screen bg-cover relative w-full z-0 bg-center flex flex-col md:flex-row items-center justify-center lg:justify-between  mb-12"
+      className="h-screen min-h-[800px] bg-cover relative w-full z-0 bg-center flex flex-col md:flex-row items-center justify-center lg:justify-between  mb-12"
       style={{
         backgroundImage: `url(${HeroImage.src})`,
       }}
     >
       <NavBarWhite />
 
-      <div className="h-[400px] hidden lg:flex items-center justify-center gap-4 w-1/2">
+      <div className="h-[400px]  hidden  lg:flex items-center justify-center gap-4 w-1/2">
         {images.map((image) => (
           <div
             key={image.id}
@@ -58,6 +59,30 @@ export default function Hero() {
               alt={image?.alt}
               width={250}
               height={350}
+              className="rounded-xl object-cover"
+              priority={activeId === image.id}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile */}
+      <div
+        className="flex lg:hidden w-full snap-x  snap-mandatory  overflow-y-hidden overflow-x-auto px-8 gap-x-4 mt-4 justify-start"
+        id="carsoule"
+      >
+        {images.map((image) => (
+          <div
+            key={image.id}
+            onClick={() => setActiveId(image.id)}
+            className={`min-w-[200px] flex   transition-transform duration-300 cursor-pointer rounded-xl overflow-hidden shadow-lg flex-shrink-0
+`}
+          >
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={200}
+              height={300}
               className="rounded-xl object-cover"
               priority={activeId === image.id}
             />
