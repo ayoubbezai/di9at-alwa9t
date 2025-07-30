@@ -8,15 +8,22 @@ import Imgae1 from "../../assets/images/hero/hero1.png";
 import Imgae2 from "../../assets/images/hero/hero2.png";
 import Imgae3 from "../../assets/images/hero/hero3.png";
 import { Button } from "../ui/button";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-const images = [
+type ImagesType = {
+  id: number;
+  src: StaticImport;
+  alt: string;
+};
+
+const images: ImagesType[] = [
   { id: 1, src: Imgae1, alt: "Image 1" },
   { id: 2, src: Imgae2, alt: "Image 2" },
   { id: 3, src: Imgae3, alt: "Image 3" },
 ];
 
 export default function Hero() {
-  const [activeId, setActiveId] = useState(1);
+  const [activeId, setActiveId] = useState<number>(1);
 
   return (
     <div
@@ -40,10 +47,10 @@ export default function Hero() {
   }
   ${
     image.id === 1
-      ? "left-[3rem] top-[8rem]"
+      ? "left-[5rem] top-[8rem]"
       : image.id === 2
-      ? "left-[10rem] top-[10.5rem] z-20"
-      : "left-[16rem] top-[13rem]"
+      ? "left-[12rem] top-[10.5rem] z-20"
+      : "left-[17rem] top-[13rem]"
   }`}
           >
             <Image
