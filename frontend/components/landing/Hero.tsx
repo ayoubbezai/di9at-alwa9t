@@ -55,13 +55,12 @@ export default function Hero() {
       <Image
         src={HeroImage}
         alt="Hero Background"
-        width={1920}
-        height={1080}
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, 50vw"
-        priority
+        fill
+        className="object-cover -z-10"
         placeholder="blur"
+        priority
       />
+
       <NavBarWhite />
 
       {/* Desktop Image Stacking */}
