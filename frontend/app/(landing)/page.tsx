@@ -1,20 +1,35 @@
 "use client";
-import dynamic from "next/dynamic";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
-const Hero = dynamic(() => import("@/components/landing/Hero"));
-const OurMission = dynamic(() => import("@/components/landing/OurMisson"));
-const AboutUs = dynamic(() => import("@/components/landing/AboutUs"));
-const OurService = dynamic(() => import("@/components/landing/OurService"));
+// SSR Hero since it's above-the-fold and critical
+import Hero from "@/components/landing/Hero";
+
+// Lazy load other sections (not critical for first paint)
+const OurMission = dynamic(() => import("@/components/landing/OurMisson"), {
+  ssr: false,
+  loading: () => null,
+});
+
+const AboutUs = dynamic(() => import("@/components/landing/AboutUs"), {
+  ssr: false,
+  loading: () => null,
+});
+
+const OurService = dynamic(() => import("@/components/landing/OurService"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Home() {
   const [showSections, setShowSections] = useState(false);
 
   useEffect(() => {
+    // Defer loading of non-critical sections
     const timer = setTimeout(() => {
       setShowSections(true);
-    }, 100); // simulate lazy load after page mount
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
