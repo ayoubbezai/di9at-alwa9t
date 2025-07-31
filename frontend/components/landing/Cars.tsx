@@ -166,7 +166,13 @@ function CarCard({
       key={id}
     >
       <div className="relative h-48 w-full">
-        <Image src={image} alt={name} fill className="object-cover" />
+        <Image
+          src={image}
+          alt={name}
+          fill
+          loading="eager"
+          className="object-cover"
+        />
         {!available && (
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
             <span className="bg-white px-3 py-1 rounded-full text-sm font-medium text-primary-dark">
