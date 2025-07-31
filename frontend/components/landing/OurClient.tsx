@@ -186,13 +186,12 @@ function CardMarqueeRow({
       pauseOnHover={true}
       className="w-full "
     >
-        <div className="flex items-stretch gap-4">
-
-      {repeatedCards.map((card, i) => (
+      <div className="flex items-stretch gap-4">
+        {repeatedCards.map((card, i) => (
           <div key={`${card.id}-${i}`} className="mr-4 ">
-          <Card {...card} />
-        </div>
-      ))}
+            <Card {...card} />
+          </div>
+        ))}
       </div>
     </Marquee>
   );
@@ -210,7 +209,7 @@ export default function OurClient() {
   };
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 overflow-hidden">
+    <section className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6 overflow-hidden mt-12 mb-6">
       <h1 className="text-2xl md:text-3xl font-bold text-center text-primary-dark mb-8">
         Our Clients
       </h1>

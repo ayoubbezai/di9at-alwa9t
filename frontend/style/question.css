@@ -1,0 +1,3 @@
+.AccordionChevron[data-state='open'] {
+  transform: rotate(180deg);
+}
