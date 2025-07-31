@@ -174,7 +174,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/35" />
     </div>
   );
 }
