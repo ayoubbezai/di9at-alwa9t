@@ -76,7 +76,7 @@ const Cards: CardType[] = [
 export default function WhyUs() {
   return (
     <section className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6">
-      <h1 className="text-2xl md:text-4xl font-bold text-center text-primary-dark mb-12">
+      <h1 className="text-[26px] md:text-4xl font-bold text-center text-primary-dark mb-12">
         Why You Need To Choose Us
       </h1>
 

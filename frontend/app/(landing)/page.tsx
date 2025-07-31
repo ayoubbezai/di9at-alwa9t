@@ -25,6 +25,10 @@ const WhyUs = dynamic(() => import("@/components/landing/WhyUs"), {
   ssr: false,
   loading: () => null,
 });
+const MostVisted = dynamic(() => import("@/components/landing/MostVisted"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Home() {
   const [showSections, setShowSections] = useState(false);
@@ -46,6 +50,7 @@ export default function Home() {
           <AboutUs />
           <OurService />
           <WhyUs />
+          <MostVisted />
         </>
       )}
     </>

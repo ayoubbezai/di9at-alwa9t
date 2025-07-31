@@ -11,9 +11,7 @@ export default function OurMission() {
       </div>
       {/* middle text */}
       <div className="flex flex-col justify-center items-center gap-8 my-12 md:my-0">
-        <h1
-          className={`font-bold text-4xl md:text-5xl text-primary-dark text-center`}
-        >
+        <h1 className="text-[26px] md:text-4xl font-bold text-center text-primary-dark mb-12">
           Our Misson
         </h1>
         <h2 className="font-normal text-base md:text-lg text-primary-dark  text-center  ">
