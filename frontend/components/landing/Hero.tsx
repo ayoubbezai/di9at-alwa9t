@@ -60,7 +60,7 @@ export default function Hero() {
           priority
           width={1920}
           height={1080}
-          className="object-cover w-full h-full"
+          className="object-cover w-full "
           sizes="100vw"
         />
       </div>
