@@ -40,6 +40,10 @@ const MostAskedQuestions = dynamic(
     loading: () => null,
   }
 );
+const Footer = dynamic(() => import("@/components/landing/Footer"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function Home() {
   const [showSections, setShowSections] = useState(false);
@@ -64,6 +68,7 @@ export default function Home() {
           <MostVisted />
           <OurClient />
           <MostAskedQuestions />
+          <Footer />
         </>
       )}
     </>
