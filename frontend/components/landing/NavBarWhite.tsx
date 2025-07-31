@@ -8,7 +8,7 @@ import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-export default function NavBarWhite() {
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {

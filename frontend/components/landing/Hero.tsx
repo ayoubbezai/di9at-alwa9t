@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import HeroImage from "@/assets/background/hero_bg.webp";
-import NavBarWhite from "@/components/landing/NavBarWhite";
+import NavBar from "@/components/landing/NavBar";
 import Image1 from "@/assets/images/hero/hero1.webp";
 import Image2 from "@/assets/images/hero/hero2.webp";
 import Image3 from "@/assets/images/hero/hero3.webp";
@@ -65,7 +65,7 @@ export default function Hero() {
         />
       </div>
 
-      <NavBarWhite />
+      <NavBar isWhite={true} />
 
       {/* Desktop Image Stacking */}
       <motion.div
