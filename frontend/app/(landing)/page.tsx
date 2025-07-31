@@ -41,7 +41,7 @@ export default function Home() {
     // Defer loading of non-critical sections
     const timer = setTimeout(() => {
       setShowSections(true);
-    }, 100);
+    }, 300);
     return () => clearTimeout(timer);
   }, []);
 
