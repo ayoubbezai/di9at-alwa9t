@@ -170,6 +170,7 @@ function CarCard({
           src={image}
           alt={name}
           fill
+          placeholder="blur"
           loading="eager"
           className="object-cover"
         />
