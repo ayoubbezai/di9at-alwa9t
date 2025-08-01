@@ -26,10 +26,11 @@ export default function NavBar({
   const otherLocale = currentLocale === "en" ? "ar" : "en";
   const isRtl = currentLocale === "ar";
 
-  const handleLanguageSwitch = () => {
+  const handleLanguageSwitch = async () => {
     const segments = pathname.split("/");
     segments[1] = otherLocale;
     router.push(segments.join("/") || `/${otherLocale}`);
+
   };
 
   useEffect(() => {

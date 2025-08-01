@@ -50,7 +50,7 @@ export default async function LandingLayout({
   children: ReactNode;
 }) {
   const cookieStore = await cookies();
-  const lang = cookieStore.get("lang")?.value || "en";
+  const lang = cookieStore.get("NEXT_LOCALE")?.value || "en";
   const isArabic = lang === "ar";
   const langFont = isArabic ? tajawal.variable : poppins.variable;
   return (
