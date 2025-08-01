@@ -2,7 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import Hero from "@/components/landing/Hero";
+import { useTranslation } from "react-i18next";
 
 const OurMission = dynamic(() => import("@/components/landing/OurMisson"), {
   ssr: false,
@@ -42,6 +44,12 @@ const Footer = dynamic(() => import("@/components/landing/Footer"), {
 
 export default function Home() {
   const [showSections, setShowSections] = useState(false);
+  const { t } = useTranslation("common");
+
+  const params = useParams();
+
+  const currentLocale = params?.locale?.toString() || "en";
+  const isRtl = currentLocale === "ar";
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -52,10 +60,10 @@ export default function Home() {
 
   return (
     <>
-      <Hero />
+      <Hero t={t} isRtl={isRtl} />
       {showSections && (
         <>
-          <OurMission />
+          <OurMission t={t} isRtl={isRtl} />
           <AboutUs />
           <OurService />
           <WhyUs />

@@ -1,17 +1,37 @@
 import "../../../style/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Tajawal, Poppins } from "next/font/google"; // ✅ Add this line
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import I18nextWrapper from "@/lib/i18n/I18nextWrapper";
 
+// System fonts
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
 });
+
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Arabic font
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
+  subsets: ["arabic"],
+  display: "swap",
+  weight: ["400", "500", "700"],
+});
+
+// English font
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -30,15 +50,16 @@ export default function LandingLayout({
   children: ReactNode;
   params: { locale: string };
 }) {
+  const isArabic = params.locale === "ar";
+  const langFont = isArabic ? tajawal.variable : poppins.variable;
+
   return (
     <html lang={params.locale} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${langFont} font-sans antialiased`}
       >
         <I18nextWrapper locale={params.locale}>
-          <main className=" w-full m-0 p-0 overflow-x-hidden  ">
-            {children}
-          </main>
+          <main className="w-full m-0 p-0 overflow-x-hidden">{children}</main>
         </I18nextWrapper>
       </body>
     </html>

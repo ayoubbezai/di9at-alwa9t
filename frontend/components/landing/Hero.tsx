@@ -41,12 +41,18 @@ const item: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1], // Valid easing
+      ease: [0.25, 0.1, 0.25, 1],
     },
   },
 };
 
-export default function Hero() {
+export default function Hero({
+  t,
+  isRtl,
+}: {
+  t: (key: string) => string;
+  isRtl: boolean;
+}) {
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
@@ -60,12 +66,12 @@ export default function Hero() {
           priority
           width={1920}
           height={1080}
-          className="object-cover w-full h-full "
+          className="object-cover w-full h-full"
           sizes="100vw"
         />
       </div>
 
-      <NavBar isWhite={true} />
+      <NavBar isWhite={true} t={t} />
 
       {/* Desktop Image Stacking */}
       <motion.div
@@ -146,29 +152,37 @@ export default function Hero() {
         animate="show"
       >
         <motion.h1
-          className="text-white text-2xl w-full lg:text-3xl z-20 leading-10 font-bold items-center"
+          className={`text-white ${
+            isRtl ? " text-3xl lg:text-4xl " : "text-2xl lg:text-3xl  "
+          } w-full  z-20 leading-10 font-bold items-center`}
           variants={item}
         >
-          Dikat Al Waqt provides reliable transportation services within the
-          Kingdom.
+          {t("hero_heading")}
         </motion.h1>
 
         <motion.p
-          className="text-[13px] md:text-sm md:w-3/4 font-normal px-2 mx-auto leading-7"
+          className={` ${
+            isRtl ? "text-[13px] md:text-sm " : " text-sm md:text-base"
+          }  md:w-3/4 font-normal px-2 mx-auto leading-7`}
           variants={item}
         >
-          With over 20 years of experience in transporting individuals and
-          groups within and between Saudi cities, we offer exceptional service
-          for pilgrims and visitors, supported by a modern fleet operating
-          around the clock.
+          {t("hero_description")}
         </motion.p>
 
         <motion.div className="flex flex-row gap-5 lg:gap-8" variants={item}>
-          <Button className="bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent px-4 lg:px-5 border-white">
-            Contact Us
+          <Button
+            className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent ${
+              isRtl ? " px-6 lg:px-8" : " px-4 lg:px-6"
+            }  border-white`}
+          >
+            {t("contact_us")}
           </Button>
-          <Button className="bg-white text-primary-dark font-semibold px-4 lg:px-5 py-3 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90">
-            Reserve A Trip
+          <Button
+            className={`bg-white text-primary-dark font-semibold ${
+              isRtl ? " px-6 lg:px-8" : " px-4 lg:px-6"
+            }  py-3 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
+          >
+            {t("reserve_trip")}
           </Button>
         </motion.div>
       </motion.div>

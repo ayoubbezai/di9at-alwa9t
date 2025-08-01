@@ -9,18 +9,16 @@ import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
 
-export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
+export default function NavBar({ isWhite = false , t }: { isWhite?: boolean , t: (key: string) => string }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
-const { t, i18n } = useTranslation("common");
 
-console.log("Current language:", i18n.language);
   const currentLocale = params?.locale?.toString() || "en";
   const otherLocale = currentLocale === "en" ? "ar" : "en";
+  const isRtl = currentLocale === "ar";
 
   const handleLanguageSwitch = () => {
     const segments = pathname.split("/");
@@ -36,9 +34,9 @@ console.log("Current language:", i18n.language);
 
   const navLinks = [
     { href: "/", label: t("nav.home") },
-    { href: "/cars", label: "Cars" },
-    { href: "/trips", label: "Trips" },
-    { href: "/contact-us", label: "Contact Us" },
+    { href: "/cars", label: t("nav.cars") },
+    { href: "/trips", label: t("nav.trips") },
+    { href: "/contact-us", label: t("nav.contact") },
   ];
 
   const isActive = (href: string) => pathname === `/${currentLocale}${href}`;
@@ -47,7 +45,7 @@ console.log("Current language:", i18n.language);
     <>
       {/* Desktop Navbar */}
       <nav
-        className={`hidden md:flex ${
+        className={`hidden md:flex ${isRtl && "flex-row-reverse"} ${
           isWhite
             ? "text-white absolute"
             : "text-primary-dark relative h-18 bg-[#F6F6F6] shadow-md"
@@ -59,10 +57,14 @@ console.log("Current language:", i18n.language);
             alt="Company Logo"
             width={36}
           />
-          <h1 className="font-semibold text-lg">Dikat Al Waqt</h1>
+          <h1 className="font-semibold text-lg">{t("companyName")}</h1>
         </div>
 
-        <ul className="flex gap-12 text-[15px] font-medium">
+        <ul
+          className={`flex flex-row ${
+            isRtl && "flex-row-reverse mr-6"
+          }  gap-12 text-[15px] font-medium`}
+        >
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
@@ -77,8 +79,11 @@ console.log("Current language:", i18n.language);
           ))}
         </ul>
 
-        <div className="flex items-center gap-4">
-          {/* 🌐 Language Switcher */}
+        <div
+          className={`flex flex-row ${
+            isRtl && "flex-row-reverse"
+          }  items-center gap-4`}
+        >
           <button
             onClick={handleLanguageSwitch}
             className={`border px-3 py-1 text-sm rounded-md transition-colors ${
@@ -101,8 +106,8 @@ console.log("Current language:", i18n.language);
             />
           </div>
           <div className="text-sm">
-            <p>Do you have a problem?</p>
-            <p className="font-medium">+213 07-48-11-06-47</p>
+            <p className={`${isRtl && "text-end"} `}>{t("help.question")}</p>
+            <p className="font-medium">{t("help.phone")}</p>
           </div>
         </div>
       </nav>
@@ -130,10 +135,10 @@ console.log("Current language:", i18n.language);
 
             <div className="flex items-center gap-3 mt-8">
               <Image src={WhiteLogo} alt="Company Logo" width={36} />
-              <h1 className="font-semibold text-lg">Dikat Al Waqt</h1>
+              <h1 className="font-semibold text-lg">{t("companyName")}</h1>
             </div>
 
-            <ul className="flex flex-col gap-6 mt-6 text-base w-full">
+            <ul className="flex flex-col  items-center gap-6 mt-6 text-base w-full">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -151,7 +156,6 @@ console.log("Current language:", i18n.language);
               ))}
             </ul>
 
-            {/* 🌐 Mobile Language Switcher */}
             <button
               onClick={handleLanguageSwitch}
               className="mt-auto border px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white hover:text-primary-dark transition-colors"
@@ -164,8 +168,8 @@ console.log("Current language:", i18n.language);
                 <FaPhone className="text-primary-dark/85" size={18} />
               </div>
               <div className="text-sm">
-                <p>Need Help?</p>
-                <p className="font-medium">+213 07-48-11-06-47</p>
+                <p>{t("help.question")}</p>
+                <p className="font-medium">{t("help.phone")}</p>
               </div>
             </div>
           </div>

@@ -10,5 +10,14 @@
     "phone": "+213 07-48-11-06-47"
   },
   "companyName": "Dikat Al Waqt",
-  "welcome": "Welcome to our website"
+  "welcome": "Welcome to our website",
+  "hero_heading": "Dikat Al Waqt provides reliable transportation services within the Kingdom.",
+  "hero_description": "With over 20 years of experience in transporting individuals and groups within and between Saudi cities, we offer exceptional service for pilgrims and visitors, supported by a modern fleet operating around the clock.",
+  "contact_us": "Contact Us",
+  "reserve_trip": "Reserve A Trip",
+  "our_mission": {
+    "title": "Our Mission",
+    "description": "Providing safe and reliable transportation services within the Kingdom of Saudi Arabia, with a modern fleet and 24-hour availability, with special care for the comfort of pilgrims and visitors in Makkah, Madinah, and Jeddah.",
+    "cta": "See More"
+  }
 }
