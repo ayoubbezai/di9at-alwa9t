@@ -2,6 +2,7 @@
 import "../../../style/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Tajawal, Poppins } from "next/font/google";
+import { cookies } from "next/headers";
 
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -43,21 +44,21 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export default function LandingLayout({
+export default async function LandingLayout({
   children,
-  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
 }) {
-  const isArabic = params.locale === "ar";
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value || "en";
+  const isArabic = lang === "ar";
   const langFont = isArabic ? tajawal.variable : poppins.variable;
   return (
-    <html lang={isArabic ? "ar" : "en"} suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable}  ${langFont}  font-sans antialiased`}
       >
-        <I18nextWrapper locale={params.locale}>
+        <I18nextWrapper locale={lang}>
           <main className="w-full m-0 p-0 overflow-x-hidden">{children}</main>
         </I18nextWrapper>
         ;
