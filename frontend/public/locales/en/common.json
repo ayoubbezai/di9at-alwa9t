@@ -19,5 +19,35 @@
     "title": "Our Mission",
     "description": "Providing safe and reliable transportation services within the Kingdom of Saudi Arabia, with a modern fleet and 24-hour availability, with special care for the comfort of pilgrims and visitors in Makkah, Madinah, and Jeddah.",
     "cta": "See More"
+  },
+  "about_us": {
+    "subtitle": "About Us",
+    "title": "Professional transportation with local expertise and trusted quality.",
+    "description": "At Diqat Al Waqt, we provide safe and flexible transportation services for individuals and visitors within and between cities across the Kingdom. With over 20 years of experience, we offer a comfortable travel experience for pilgrims, visitors, and residents—featuring a modern fleet, professional drivers, and 24/7 service availability.",
+    "years_of_experience": "Years of Experience",
+    "cities_served": "Cities Served",
+    "fleet_size": "Fleet Size",
+    "happy_customers": "Happy Customers",
+    "image_alt": "About Us"
+  },
+  
+  "our_service": {
+    "title": "Our Service",
+    "cards": [
+      {
+        "title": "Airport & Intercity Transport",
+        "description": "Reliable pickups and drop-offs from Jeddah, Madinah, and Riyadh airports. We also offer smooth, secure travel between cities with modern vehicles, professional drivers, and full-time availability to match your schedule."
+      },
+      {
+        "title": "Pilgrim & Visitor Service",
+        "description": "Tailored transportation for pilgrims and visitors within Makkah and Madinah. We ensure flexibility in timing, comfort in travel, and a respectful experience that considers religious rituals and sacred locations."
+      },
+      {
+        "title": "City Transportation & Rentals",
+        "description": "Explore the city with ease through hourly chauffeur services, event transfers, or guided local tours. Our in-city rides are fast, reliable, and comfortable — ideal for business, leisure, or special occasions."
+      }
+    ]
   }
+
+
 }

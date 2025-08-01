@@ -65,7 +65,7 @@ export default function Home() {
         <>
           <OurMission t={t} isRtl={isRtl} />
           <AboutUs t={t} isRtl={isRtl} />
-          <OurService />
+          <OurService t={t} isRtl={isRtl} />
           <WhyUs />
           <MostVisted />
           <OurClient />

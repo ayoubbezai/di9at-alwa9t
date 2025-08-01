@@ -123,6 +123,10 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+html {
+  font-size: clamp(14px, 0.925vw + 0.25rem, 14.5px);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

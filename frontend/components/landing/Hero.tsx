@@ -164,7 +164,7 @@ export default function Hero({
 
         <motion.p
           className={` ${
-            isRtl ? "text-base md:text-lg " : " text-[13px] md:text-[15px]"
+            isRtl ? "text-base md:text-lg " : " text-[0.9rem] md:text-[1rem]"
           }  md:w-3/4 font-normal px-2 mx-auto leading-7`}
           variants={item}
         >
