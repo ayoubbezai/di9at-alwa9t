@@ -8,11 +8,22 @@ import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 
 export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const params = useParams();
+  const router = useRouter();
+
+  const currentLocale = params?.locale?.toString() || "en";
+  const otherLocale = currentLocale === "en" ? "ar" : "en";
+
+  const handleLanguageSwitch = () => {
+    const segments = pathname.split("/");
+    segments[1] = otherLocale;
+    router.push(segments.join("/") || `/${otherLocale}`);
+  };
 
   useEffect(() => {
     const handleScroll = () => isMenuOpen && setIsMenuOpen(false);
@@ -20,7 +31,6 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMenuOpen]);
 
-  // Navigation links data
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/cars", label: "Cars" },
@@ -28,8 +38,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
     { href: "/contact-us", label: "Contact Us" },
   ];
 
-  // Check if link is active
-  const isActive = (href: string) => pathname === href;
+  const isActive = (href: string) => pathname === `/${currentLocale}${href}`;
 
   return (
     <>
@@ -54,7 +63,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
-                href={link.href}
+                href={`/${currentLocale}${link.href}`}
                 className={`transition-colors hover:text-primary ${
                   isActive(link.href) ? "font-semibold" : "font-medium"
                 }`}
@@ -65,7 +74,19 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
           ))}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
+          {/* 🌐 Language Switcher */}
+          <button
+            onClick={handleLanguageSwitch}
+            className={`border px-3 py-1 text-sm rounded-md transition-colors ${
+              isWhite
+                ? "border-white text-white hover:bg-white hover:text-primary-dark"
+                : "border-primary-dark text-primary-dark hover:bg-primary-dark hover:text-white"
+            }`}
+          >
+            {otherLocale.toUpperCase()}
+          </button>
+
           <div
             className={`w-9 h-9 rounded-full flex items-center justify-center ${
               isWhite ? "bg-white" : "bg-primary-dark"
@@ -83,7 +104,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
         </div>
       </nav>
 
-      {/* Mobile Navbar */}
+      {/* Mobile Toggle */}
       <button
         aria-label="Open menu"
         className="md:hidden absolute top-5 right-6 text-white z-50"
@@ -92,7 +113,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
         <FiMenu size={28} />
       </button>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 bg-black/50 z-40 md:hidden">
           <div className="absolute top-0 right-0 w-64 h-full bg-primary-dark/95 text-white flex flex-col px-6 py-8 gap-6">
@@ -113,7 +134,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={`/${currentLocale}${link.href}`}
                     className={`block py-2 ${
                       isActive(link.href)
                         ? "font-semibold text-white"
@@ -127,7 +148,15 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
               ))}
             </ul>
 
-            <div className="mt-auto flex items-center gap-3 pt-12">
+            {/* 🌐 Mobile Language Switcher */}
+            <button
+              onClick={handleLanguageSwitch}
+              className="mt-auto border px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-white hover:text-primary-dark transition-colors"
+            >
+              {otherLocale.toUpperCase()}
+            </button>
+
+            <div className="mt-6 flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center">
                 <FaPhone className="text-primary-dark/85" size={18} />
               </div>

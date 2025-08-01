@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../../style/globals.css";
+import "../../../style/globals.css";
+import { dir } from "i18next";
+
+// These come from [locale] route param
+export async function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "ar" }];
+}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,19 +25,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale: string };
+}) {
+  const htmlDir = dir(params.locale); // 'ltr' or 'rtl'
+
   return (
-    <html lang="en">
-      
+    <html lang={params?.locale || "ar"}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased m-0 p-0`}
       >
-        {/* <NaNvBar /> */}
-        <div className=" w-full m-0 p-0 overflow-x-hidden  ">
-          {children}
-        </div>
+        <div className="w-full m-0 p-0 overflow-x-hidden">{children}</div>
       </body>
     </html>
   );
