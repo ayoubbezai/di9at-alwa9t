@@ -10,7 +10,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
 
-export default function NavBar({ isWhite = false , t }: { isWhite?: boolean , t: (key: string) => string }) {
+export default function NavBar({
+  isWhite = false,
+  t,
+}: {
+  isWhite?: boolean;
+  t: (key: string) => string;
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const params = useParams();
@@ -101,7 +107,13 @@ export default function NavBar({ isWhite = false , t }: { isWhite?: boolean , t:
             }`}
           >
             <FaPhone
-              className={isWhite ? "text-[#7A7B78]" : "text-white"}
+              className={
+                isWhite
+                  ? isRtl
+                    ? "text-[#3A5978]/90"
+                    : "text-[#7A7B78]"
+                  : "text-white"
+              }
               size={18}
             />
           </div>

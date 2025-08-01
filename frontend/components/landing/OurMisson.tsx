@@ -28,9 +28,7 @@ export default function OurMission({
         </h1>
         <h2
           className={`font-normal text-primary-dark ${
-            isRtl
-              ? "text-lg md:text-[19px] leading-loose"
-              : "text-base md:text-lg"
+            isRtl ? "text-lg md:text-xl " : "text-base md:text-lg"
           }`}
         >
           {t("our_mission.description")}

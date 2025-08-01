@@ -64,7 +64,7 @@ export default function Home() {
       {showSections && (
         <>
           <OurMission t={t} isRtl={isRtl} />
-          <AboutUs />
+          <AboutUs t={t} isRtl={isRtl} />
           <OurService />
           <WhyUs />
           <MostVisted />

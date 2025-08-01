@@ -22,7 +22,13 @@ const Label = ({ title, number }: LabelProps) => (
     <span className="text-sm text-primary-dark/80 text-center">{title}</span>
   </div>
 );
-export default function AboutUs() {
+export default function AboutUs({
+  t,
+  isRtl,
+}: {
+  t: (key: string) => string;
+  isRtl: boolean;
+}) {
   return (
     <section className="flex  flex-col-reverse md:flex-row items-center justify-between my-20  px-6 py-8 w-full md:mx-6 lg:mx-10 md:px-0 gap-12">
       {/*  text */}

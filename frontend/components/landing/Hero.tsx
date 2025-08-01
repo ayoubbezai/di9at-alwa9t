@@ -146,7 +146,9 @@ export default function Hero({
 
       {/* Text Content */}
       <motion.div
-        className="flex flex-col z-10 text-center text-white gap-8 justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8"
+        className={`flex flex-col z-10 text-center text-white ${
+          isRtl ? "gap-10" : "gap-8"
+        }  justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8`}
         variants={container}
         initial="hidden"
         animate="show"
@@ -162,24 +164,27 @@ export default function Hero({
 
         <motion.p
           className={` ${
-            isRtl ? "text-[13px] md:text-sm " : " text-sm md:text-base"
+            isRtl ? "text-base md:text-lg " : " text-[13px] md:text-[15px]"
           }  md:w-3/4 font-normal px-2 mx-auto leading-7`}
           variants={item}
         >
           {t("hero_description")}
         </motion.p>
 
-        <motion.div className="flex flex-row gap-5 lg:gap-8" variants={item}>
+        <motion.div
+          className="flex flex-row gap-5 lg:gap-8 mt-1"
+          variants={item}
+        >
           <Button
             className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent ${
-              isRtl ? " px-6 lg:px-8" : " px-4 lg:px-6"
+              isRtl ? " px-8 lg:px-12" : " px-6 lg:px-8"
             }  border-white`}
           >
             {t("contact_us")}
           </Button>
           <Button
             className={`bg-white text-primary-dark font-semibold ${
-              isRtl ? " px-6 lg:px-8" : " px-4 lg:px-6"
+              isRtl ? " px-8 lg:px-12" : " px-6 lg:px-8"
             }  py-3 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
           >
             {t("reserve_trip")}
