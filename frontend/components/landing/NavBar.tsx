@@ -9,13 +9,16 @@ import { IoMdClose } from "react-icons/io";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams, usePathname, useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
+const { t, i18n } = useTranslation("common");
 
+console.log("Current language:", i18n.language);
   const currentLocale = params?.locale?.toString() || "en";
   const otherLocale = currentLocale === "en" ? "ar" : "en";
 
@@ -32,7 +35,7 @@ export default function NavBar({ isWhite = false }: { isWhite?: boolean }) {
   }, [isMenuOpen]);
 
   const navLinks = [
-    { href: "/", label: "Home" },
+    { href: "/", label: t("nav.home") },
     { href: "/cars", label: "Cars" },
     { href: "/trips", label: "Trips" },
     { href: "/contact-us", label: "Contact Us" },

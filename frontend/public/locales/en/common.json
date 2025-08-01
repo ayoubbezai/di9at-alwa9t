@@ -1,3 +1,14 @@
 {
-  "welcome": "مرحبا بكم في موقعنا"
+  "nav": {
+    "home": "Home",
+    "cars": "Cars",
+    "trips": "Trips",
+    "contact": "Contact Us"
+  },
+  "help": {
+    "question": "Do you have a problem?",
+    "phone": "+213 07-48-11-06-47"
+  },
+  "companyName": "Dikat Al Waqt",
+  "welcome": "Welcome to our website"
 }

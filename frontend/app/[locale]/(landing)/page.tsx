@@ -1,9 +1,5 @@
-import Home from "./Home";
-
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ar" }];
-}
+import HomeClientWrapper from "./HomeClientWrapper";
 
 export default function Page() {
-  return <Home />;
+  return <HomeClientWrapper />;
 }
