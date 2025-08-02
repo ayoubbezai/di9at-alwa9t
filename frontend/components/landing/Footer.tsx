@@ -65,7 +65,7 @@ function OtherLinks() {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden h-auto min-h-[70vh] flex flex-col">
+    <footer className="relative w-full border-2  overflow-hidden h-auto min-h-[70vh] flex flex-col">
       {/* Background Image */}
       <div className="absolute inset-0 -z-30">
         <Image

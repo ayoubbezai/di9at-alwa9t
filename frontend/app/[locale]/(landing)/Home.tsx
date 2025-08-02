@@ -66,10 +66,10 @@ export default function Home() {
           <OurMission t={t} isRtl={isRtl} />
           <AboutUs t={t} isRtl={isRtl} />
           <OurService t={t} isRtl={isRtl} />
-          <WhyUs />
-          <MostVisted />
-          <OurClient />
-          <MostAskedQuestions />
+          <WhyUs t={t} isRtl={isRtl} />
+          <MostVisted t={t} isRtl={isRtl} />
+          <OurClient t={t} isRtl={isRtl} />
+          <MostAskedQuestions t={t} isRtl={isRtl} />
           <Footer />
         </>
       )}

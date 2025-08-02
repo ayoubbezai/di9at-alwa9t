@@ -56,12 +56,13 @@ export default async function LandingLayout({
   return (
     <html lang={lang} suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  ${langFont}  font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  ${langFont}  font-sans antialiased  p-0 m-0`}
       >
         <I18nextWrapper locale={lang}>
-          <main className="w-full m-0 p-0 overflow-x-hidden">{children}</main>
+          <main className="w-full m-0 p-0 overflow-x-hidden overflow-y-hidden">
+            {children}
+          </main>
         </I18nextWrapper>
-        ;
       </body>
     </html>
   );
