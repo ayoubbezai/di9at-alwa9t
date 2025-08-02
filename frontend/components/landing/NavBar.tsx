@@ -131,7 +131,9 @@ export default function NavBar({
       {/* Mobile Toggle */}
       <button
         aria-label="Open menu"
-        className="md:hidden absolute top-5 right-6 text-white z-50"
+        className={`${
+          isMenuOpen && "hidden"
+        } md:hidden absolute top-5 right-6 text-white z-50`}
         onClick={() => setIsMenuOpen(true)}
       >
         <FiMenu size={28} />
