@@ -79,7 +79,7 @@ export default function NavBar({
             <li key={link.href} className="">
               <Link
                 href={`/${currentLocale}${link.href}`}
-                className={`transition-colors hover:text-primary ${
+                className={`transition-colors text-[.95rem] hover:text-primary ${
                   isActive(link.href) ? "font-semibold" : "font-medium"
                 }`}
               >

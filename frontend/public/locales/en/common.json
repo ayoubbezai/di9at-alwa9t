@@ -112,5 +112,14 @@
     "reserve_now": "Reserve Now",
     "unavailable_button": "Currently Unavailable",
     "currently_booked": "Currently Booked"
+  },
+  "services": {
+    "section_title": "Our Transportation Services",
+    "section_description": "Premium private transfers and travel solutions in Saudi Arabia",
+    "book_now": "Book Now",
+    "unavailable": "Unavailable",
+    "custom_solution_title": "Need a Custom Solution?",
+    "custom_solution_description": "We specialize in personalized transportation services tailored to your specific needs.",
+    "request_custom_offer": "Request Custom Offer"
   }
 }

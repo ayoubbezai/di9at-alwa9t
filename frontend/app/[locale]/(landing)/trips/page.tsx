@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <>
       <NavBar isWhite={false} t={t} />
-      <Trips />
+      <Trips t={t} isRtl={isRtl} />
       <Footer t={t} isRtl={isRtl} />
     </>
   );

@@ -108,5 +108,14 @@
     "reserve_now": "احجز الآن",
     "unavailable_button": "غير متاح حالياً",
     "currently_booked": "محجوز حالياً"
+  },
+  "services": {
+    "section_title": "خدمات النقل الخاصة بنا",
+    "section_description": "تنقلات خاصة متميزة وحلول سفر داخل المملكة العربية السعودية",
+    "book_now": "احجز الآن",
+    "unavailable": "غير متاح",
+    "custom_solution_title": "تحتاج إلى خدمة مخصصة؟",
+    "custom_solution_description": "نحن متخصصون في تقديم خدمات نقل مخصصة حسب احتياجاتك.",
+    "request_custom_offer": "طلب عرض مخصص"
   }
 }
