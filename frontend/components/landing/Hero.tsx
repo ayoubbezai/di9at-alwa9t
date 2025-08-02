@@ -7,6 +7,8 @@ import NavBar from "@/components/landing/NavBar";
 import Image1 from "@/assets/images/hero/hero1.webp";
 import Image2 from "@/assets/images/hero/hero2.webp";
 import Image3 from "@/assets/images/hero/hero3.webp";
+import WhiteLogo from "@/assets/logos/white_logo.png";
+
 import { Button } from "../ui/button";
 import { motion, Variants } from "framer-motion";
 import "@/style/hero.css";
@@ -57,7 +59,7 @@ export default function Hero({
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+    <div className="relative w-full overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center gap-12 md:gap-0 justify-center lg:justify-between">
       {/* Background */}
       <div className="absolute inset-0 -z-30">
         <Image
@@ -114,6 +116,18 @@ export default function Hero({
         })}
       </motion.div>
 
+      {/* mobile log */}
+
+      <div className="z-30 md:hidden flex flex-col items-center justify-between gap-6">
+        <Image
+          src={WhiteLogo}
+          alt="Company Logo"
+          width={100}
+          className="z-40"
+        />
+        {/* <h1 className="font-bold text-2xl text-white">{t("companyName")}</h1> */}
+      </div>
+
       {/* Text Content */}
       <motion.div
         className={`flex flex-col z-10 text-center text-white ${
@@ -125,8 +139,8 @@ export default function Hero({
       >
         <motion.h1
           className={`text-white ${
-            isRtl ? "text-3xl lg:text-4xl" : "text-2xl lg:text-3xl"
-          } w-full z-20 leading-10 font-bold items-center`}
+            isRtl ? "text-[2.2rem] lg:text-4xl" : "text-[2rem] lg:text-3xl"
+          } w-full z-20 leading-12 font-bold items-center`}
           variants={item}
         >
           {t("hero_heading")}
@@ -134,8 +148,10 @@ export default function Hero({
 
         <motion.p
           className={`${
-            isRtl ? "text-base md:text-lg" : "text-[0.9rem] md:text-[1rem]"
-          } md:w-3/4 font-normal px-2 mx-auto leading-6`}
+            isRtl
+              ? "text-[1.1rem] md:text-lg leading-8"
+              : "text-[1rem] md:text-[1rem] leading-7"
+          } md:w-3/4 font-normal px-2 mx-auto `}
           variants={item}
         >
           {t("hero_description")}
@@ -146,16 +162,16 @@ export default function Hero({
           variants={item}
         >
           <Button
-            className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-2.5 lg:py-5 cursor-pointer hover:bg-transparent ${
-              isRtl ? "px-8 lg:px-12" : "px-5 lg:px-8"
+            className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105  rounded-2xl py-4 lg:py-5  text-base cursor-pointer hover:bg-transparent ${
+              isRtl ? "px-8 lg:px-12" : "px-5 lg:px-8  text-[.9rem] "
             } border-white`}
           >
             {t("contact_us")}
           </Button>
           <Button
-            className={`bg-white text-primary-dark font-semibold ${
-              isRtl ? "px-8 lg:px-12" : "px-5 lg:px-8"
-            } py-2.5 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
+            className={`bg-white text-primary-dark font-semibold   ${
+              isRtl ? "px-8 lg:px-12 text-base" : "px-5 lg:px-8 text-[.9rem]"
+            } py-4 lg:py-5 hover:scale-105  rounded-2xl cursor-pointer hover:bg-white/90`}
           >
             {t("reserve_trip")}
           </Button>

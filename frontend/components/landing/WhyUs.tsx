@@ -21,7 +21,7 @@ function Card({ id, title, description, Icon, isRtl }: CardType) {
   return (
     <div
       key={id}
-      className="flex flex-col gap-2 justify-between bg-gray-50 px-4 py-5 lg:p-4  items-start w-full 
+      className="flex flex-col gap-2  justify-between bg-gray-50 px-4 py-5 lg:p-4  items-start w-full 
                  shadow-sm hover:shadow-md transition-shadow duration-200 border rounded-lg border-gray-100"
     >
       <div
@@ -85,7 +85,7 @@ export default function WhyUs({
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-12 px-4 sm:px-6">
+    <section className="w-full mt-2 max-w-7xl mx-auto py-12 px-4 sm:px-6">
       <h1 className="text-[26px] md:text-4xl font-bold text-center text-primary-dark mb-12">
         {t("why_us.title")}
       </h1>
