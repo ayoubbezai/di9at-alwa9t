@@ -57,7 +57,7 @@ export default function Hero({
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[700px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+    <div className="relative w-full overflow-hidden min-h-[70vh] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
       <div className="absolute inset-0 -z-30">
         <Image
@@ -113,87 +113,6 @@ export default function Hero({
           );
         })}
       </motion.div>
-
-      {/* Compact Mobile Carousel */}
-      <div className="lg:hidden w-full mt-6 px-4">
-        <motion.div
-          className="relative  w-5/6  mx-auto"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          <div
-            className="relative w-2/3 mx-auto"
-            style={{
-              paddingBottom: "100%",
-              maxWidth: "280px",
-              margin: "0 auto",
-            }}
-          >
-            {images.map((image) => (
-              <motion.div
-                key={image.id}
-                className={`absolute inset-0 mx-auto w-full h-full transition-all duration-500 ease-in-out ${
-                  activeId === image.id
-                    ? "opacity-100 z-10 scale-100"
-                    : "opacity-0 z-0 scale-95"
-                }`}
-                variants={item}
-              >
-                <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg">
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    placeholder="blur"
-                    fill
-                    sizes="(max-width: 768px) 240px, 200px"
-                    className="object-cover"
-                    style={{ objectPosition: "center" }}
-                    priority={activeId === image.id}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Compact Carousel Indicators */}
-          <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center gap-1.5">
-            {images.map((image) => (
-              <button
-                key={image.id}
-                onClick={() => setActiveId(image.id)}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  activeId === image.id
-                    ? "bg-white w-4 scale-110"
-                    : "bg-white/50 hover:bg-white/80"
-                }`}
-                aria-label={`Go to slide ${image.id}`}
-              />
-            ))}
-          </div>
-
-          {/* Smaller Navigation Arrows */}
-          <button
-            onClick={() =>
-              setActiveId((prev) => (prev === 1 ? images.length : prev - 1))
-            }
-            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-all text-sm"
-            aria-label="Previous slide"
-          >
-            &larr;
-          </button>
-          <button
-            onClick={() =>
-              setActiveId((prev) => (prev === images.length ? 1 : prev + 1))
-            }
-            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-all text-sm"
-            aria-label="Next slide"
-          >
-            &rarr;
-          </button>
-        </motion.div>
-      </div>
 
       {/* Text Content */}
       <motion.div
