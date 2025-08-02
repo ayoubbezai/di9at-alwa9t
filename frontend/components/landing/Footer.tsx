@@ -87,7 +87,7 @@ export default function Footer({
   isRtl: boolean;
 }) {
   return (
-    <footer className="relative w-full overflow-hidden h-auto min-h-[70vh] flex flex-col">
+    <footer className="relative w-full overflow-hidden h-auto min-h-[50vh] flex flex-col">
       {/* Background Image */}
       <div className="absolute inset-0 -z-30">
         <Image

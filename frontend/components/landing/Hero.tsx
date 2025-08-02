@@ -16,12 +16,13 @@ type ImagesType = {
   id: number;
   src: StaticImport;
   alt: string;
+  aspectRatio: number;
 };
 
 const images: ImagesType[] = [
-  { id: 1, src: Image1, alt: "Image 1" },
-  { id: 2, src: Image2, alt: "Image 2" },
-  { id: 3, src: Image3, alt: "Image 3" },
+  { id: 1, src: Image2, alt: "Image 2", aspectRatio: 3 / 4 },
+  { id: 2, src: Image1, alt: "Image 1", aspectRatio: 3 / 4 },
+  { id: 3, src: Image3, alt: "Image 3", aspectRatio: 3 / 4 },
 ];
 
 // Animation Variants
@@ -56,7 +57,7 @@ export default function Hero({
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[800px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+    <div className="relative w-full overflow-hidden min-h-[700px] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
       <div className="absolute inset-0 -z-30">
         <Image
@@ -113,79 +114,129 @@ export default function Hero({
         })}
       </motion.div>
 
-      {/* Mobile Carousel */}
-      <motion.div
-        className="flex lg:hidden w-full  snap-x snap-mandatory overflow-x-auto px-8 gap-x-4 mt-4 justify-start"
-        id="carousel"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {images.map((image) => (
-          <motion.div
-            key={image.id}
-            onClick={() => setActiveId(image.id)}
-            className="min-w-[200px] flex flex-shrink-0 rounded-xl overflow-auto shadow-lg cursor-pointer"
-            variants={item}
-            whileTap={{ scale: 0.97 }}
-            whileHover={{ scale: 1.03 }}
+      {/* Compact Mobile Carousel */}
+      <div className="lg:hidden w-full mt-6 px-4">
+        <motion.div
+          className="relative  w-5/6  mx-auto"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
+          <div
+            className="relative w-2/3 mx-auto"
+            style={{
+              paddingBottom: "100%",
+              maxWidth: "280px",
+              margin: "0 auto",
+            }}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              placeholder="blur"
-              width={200}
-              height={300}
-              sizes="(max-width: 1024px) 200px, 250px"
-              className="rounded-xl object-cover"
-              priority={activeId === image.id}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+            {images.map((image) => (
+              <motion.div
+                key={image.id}
+                className={`absolute inset-0 mx-auto w-full h-full transition-all duration-500 ease-in-out ${
+                  activeId === image.id
+                    ? "opacity-100 z-10 scale-100"
+                    : "opacity-0 z-0 scale-95"
+                }`}
+                variants={item}
+              >
+                <div className="relative w-full h-full rounded-xl overflow-hidden shadow-lg">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    placeholder="blur"
+                    fill
+                    sizes="(max-width: 768px) 240px, 200px"
+                    className="object-cover"
+                    style={{ objectPosition: "center" }}
+                    priority={activeId === image.id}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Compact Carousel Indicators */}
+          <div className="absolute bottom-2 left-0 right-0 z-20 flex justify-center gap-1.5">
+            {images.map((image) => (
+              <button
+                key={image.id}
+                onClick={() => setActiveId(image.id)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  activeId === image.id
+                    ? "bg-white w-4 scale-110"
+                    : "bg-white/50 hover:bg-white/80"
+                }`}
+                aria-label={`Go to slide ${image.id}`}
+              />
+            ))}
+          </div>
+
+          {/* Smaller Navigation Arrows */}
+          <button
+            onClick={() =>
+              setActiveId((prev) => (prev === 1 ? images.length : prev - 1))
+            }
+            className="absolute left-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-all text-sm"
+            aria-label="Previous slide"
+          >
+            &larr;
+          </button>
+          <button
+            onClick={() =>
+              setActiveId((prev) => (prev === images.length ? 1 : prev + 1))
+            }
+            className="absolute right-1 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-all text-sm"
+            aria-label="Next slide"
+          >
+            &rarr;
+          </button>
+        </motion.div>
+      </div>
 
       {/* Text Content */}
       <motion.div
         className={`flex flex-col z-10 text-center text-white ${
-          isRtl ? "gap-10" : "gap-8"
-        }  justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-8`}
+          isRtl ? "gap-8" : "gap-6"
+        } justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-6 lg:mt-0`}
         variants={container}
         initial="hidden"
         animate="show"
       >
         <motion.h1
           className={`text-white ${
-            isRtl ? " text-3xl lg:text-4xl " : "text-2xl lg:text-3xl  "
-          } w-full  z-20 leading-10 font-bold items-center`}
+            isRtl ? "text-3xl lg:text-4xl" : "text-2xl lg:text-3xl"
+          } w-full z-20 leading-10 font-bold items-center`}
           variants={item}
         >
           {t("hero_heading")}
         </motion.h1>
 
         <motion.p
-          className={` ${
-            isRtl ? "text-base md:text-lg " : " text-[0.9rem] md:text-[1rem]"
-          }  md:w-3/4 font-normal px-2 mx-auto leading-7`}
+          className={`${
+            isRtl ? "text-base md:text-lg" : "text-[0.9rem] md:text-[1rem]"
+          } md:w-3/4 font-normal px-2 mx-auto leading-6`}
           variants={item}
         >
           {t("hero_description")}
         </motion.p>
 
         <motion.div
-          className="flex flex-row gap-5 lg:gap-8 mt-1"
+          className="flex flex-row gap-4 lg:gap-8 mt-1 w-full justify-center"
           variants={item}
         >
           <Button
-            className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-3 lg:py-5 cursor-pointer hover:bg-transparent ${
-              isRtl ? " px-8 lg:px-12" : " px-6 lg:px-8"
-            }  border-white`}
+            className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-2.5 lg:py-5 cursor-pointer hover:bg-transparent ${
+              isRtl ? "px-6 lg:px-12" : "px-5 lg:px-8"
+            } border-white`}
           >
             {t("contact_us")}
           </Button>
           <Button
             className={`bg-white text-primary-dark font-semibold ${
-              isRtl ? " px-8 lg:px-12" : " px-6 lg:px-8"
-            }  py-3 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
+              isRtl ? "px-6 lg:px-12" : "px-5 lg:px-8"
+            } py-2.5 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
           >
             {t("reserve_trip")}
           </Button>
@@ -193,7 +244,7 @@ export default function Hero({
       </motion.div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/35" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-black/35" />
     </div>
   );
 }
