@@ -133,7 +133,9 @@ export default function NavBar({
         aria-label="Open menu"
         className={`${
           isMenuOpen && "hidden"
-        } md:hidden absolute top-5 right-6 text-white z-50`}
+        } md:hidden absolute top-5 right-6 ${
+          isWhite ? "text-white" : "text-primary-dark"
+        }  z-50`}
         onClick={() => setIsMenuOpen(true)}
       >
         <FiMenu size={28} />
