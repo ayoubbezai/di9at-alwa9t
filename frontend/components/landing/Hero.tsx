@@ -57,7 +57,7 @@ export default function Hero({
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[70vh] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+    <div className="relative w-full overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
       <div className="absolute inset-0 -z-30">
         <Image
