@@ -57,7 +57,7 @@ export default function Hero({
   const [activeId, setActiveId] = useState<number>(1);
 
   return (
-    <div className="relative w-full overflow-hidden min-h-[90vh] md:min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
+    <div className="relative w-full overflow-hidden min-h-screen flex flex-col md:flex-row items-center justify-center lg:justify-between">
       {/* Background */}
       <div className="absolute inset-0 -z-30">
         <Image
@@ -117,7 +117,7 @@ export default function Hero({
       {/* Text Content */}
       <motion.div
         className={`flex flex-col z-10 text-center text-white ${
-          isRtl ? "gap-8" : "gap-6"
+          isRtl ? "gap-14" : "gap-12"
         } justify-center items-center lg:pr-12 w-full px-6 lg:w-1/2 mx-auto mt-6 lg:mt-0`}
         variants={container}
         initial="hidden"
@@ -147,14 +147,14 @@ export default function Hero({
         >
           <Button
             className={`bg-transparent font-medium border-1 backdrop-blur-xs hover:scale-105 text-xs lg:text-sm rounded-2xl py-2.5 lg:py-5 cursor-pointer hover:bg-transparent ${
-              isRtl ? "px-6 lg:px-12" : "px-5 lg:px-8"
+              isRtl ? "px-8 lg:px-12" : "px-5 lg:px-8"
             } border-white`}
           >
             {t("contact_us")}
           </Button>
           <Button
             className={`bg-white text-primary-dark font-semibold ${
-              isRtl ? "px-6 lg:px-12" : "px-5 lg:px-8"
+              isRtl ? "px-8 lg:px-12" : "px-5 lg:px-8"
             } py-2.5 lg:py-5 hover:scale-105 text-xs lg:text-sm rounded-2xl cursor-pointer hover:bg-white/90`}
           >
             {t("reserve_trip")}
