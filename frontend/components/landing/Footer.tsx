@@ -83,7 +83,7 @@ export default function Footer({
   t,
   isRtl,
 }: {
-  t: (key: string, options?: any) => string;
+  t: (key: string) => string;
   isRtl: boolean;
 }) {
   return (
@@ -176,7 +176,8 @@ export default function Footer({
 
           {/* Copyright */}
           <p className="text-xs font-normal text-white/85 text-center pb-2 sm:pb-0">
-            {t("footer.rights_reserved", { year: new Date().getFullYear() })}
+            {t("footer.rights_reserved")} {new Date().getFullYear()}{" "}
+            {t("footer.brand")}
           </p>
         </div>
       </div>
