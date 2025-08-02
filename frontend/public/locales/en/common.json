@@ -100,5 +100,17 @@
       "linkedin": "LinkedIn"
     },
     "brand": "Di9at Al Wa9t"
+  },
+  "cars": {
+    "section_title": "Rent Cars By Hour",
+    "section_description": "Choose from our premium selection of vehicles for your next journey",
+    "hour": "hour",
+    "ac": "AC",
+    "no_ac": "No AC",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "reserve_now": "Reserve Now",
+    "unavailable_button": "Currently Unavailable",
+    "currently_booked": "Currently Booked"
   }
 }

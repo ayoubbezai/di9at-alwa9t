@@ -96,5 +96,17 @@
       "linkedin": "لينكدإن"
     },
     "brand": "دقة الوقت"
+  },
+  "cars": {
+    "section_title": "استئجار السيارات بالساعة",
+    "section_description": "اختر من مجموعتنا المميزة من المركبات لرحلتك القادمة",
+    "hour": "ساعة",
+    "ac": "مكيف",
+    "no_ac": "بدون تكييف",
+    "available": "متاح",
+    "unavailable": "غير متاح",
+    "reserve_now": "احجز الآن",
+    "unavailable_button": "غير متاح حالياً",
+    "currently_booked": "محجوز حالياً"
   }
 }

@@ -30,7 +30,6 @@ export default function NavBar({
     const segments = pathname.split("/");
     segments[1] = otherLocale;
     router.push(segments.join("/") || `/${otherLocale}`);
-
   };
 
   useEffect(() => {
@@ -58,7 +57,11 @@ export default function NavBar({
             : "text-primary-dark relative h-18 bg-[#F6F6F6] shadow-md"
         } top-0 w-full justify-between items-center py-4 px-8 z-50`}
       >
-        <div className="flex items-center gap-3">
+        <div
+          className={`flex ${
+            isRtl ? "flex-row-reverse" : "flex-row"
+          } items-center gap-3`}
+        >
           <Image
             src={isWhite ? WhiteLogo : DarkBlueLogo}
             alt="Company Logo"
@@ -69,11 +72,11 @@ export default function NavBar({
 
         <ul
           className={`flex flex-row ${
-            isRtl && "flex-row-reverse mr-6"
-          }  gap-12 text-[15px] font-medium`}
+            isRtl ? "flex-row-reverse lg:mr-20" : " lg:ml-12 "
+          }  gap-12 text-sm  font-medium`}
         >
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="">
               <Link
                 href={`/${currentLocale}${link.href}`}
                 className={`transition-colors hover:text-primary ${
