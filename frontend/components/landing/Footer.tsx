@@ -32,19 +32,35 @@ function SocialIcon({
 }
 
 const socialLinks = [
-  { Icon: FaFacebook, href: "javascript:void(0)", label: "Facebook" },
-  { Icon: FaTwitter, href: "javascript:void(0)", label: "Twitter" },
-  { Icon: FaInstagram, href: "javascript:void(0)", label: "Instagram" },
-  { Icon: FaLinkedin, href: "javascript:void(0)", label: "LinkedIn" },
+  {
+    Icon: FaFacebook,
+    href: "javascript:void(0)",
+    label: "footer.social.facebook",
+  },
+  {
+    Icon: FaTwitter,
+    href: "javascript:void(0)",
+    label: "footer.social.twitter",
+  },
+  {
+    Icon: FaInstagram,
+    href: "javascript:void(0)",
+    label: "footer.social.instagram",
+  },
+  {
+    Icon: FaLinkedin,
+    href: "javascript:void(0)",
+    label: "footer.social.linkedin",
+  },
 ];
 
 const otherLinks = [
-  { name: "Privacy Policy", href: "/" },
-  { name: "Terms and Conditions", href: "/" },
-  { name: "Contact Us", href: "/" },
+  { name: "footer.privacy_policy", href: "/" },
+  { name: "footer.terms_conditions", href: "/" },
+  { name: "footer.contact_us", href: "/" },
 ];
 
-function OtherLinks() {
+function OtherLinks({ t }: { t: (key: string) => string }) {
   return (
     <nav
       aria-label="Footer links"
@@ -56,16 +72,22 @@ function OtherLinks() {
           href={link.href}
           className="hover:text-white/70 transition-colors px-2 py-1"
         >
-          {link.name}
+          {t(link.name)}
         </Link>
       ))}
     </nav>
   );
 }
 
-export default function Footer() {
+export default function Footer({
+  t,
+  isRtl,
+}: {
+  t: (key: string, options?: any) => string;
+  isRtl: boolean;
+}) {
   return (
-    <footer className="relative w-full border-2  overflow-hidden h-auto min-h-[70vh] flex flex-col">
+    <footer className="relative w-full overflow-hidden h-auto min-h-[70vh] flex flex-col">
       {/* Background Image */}
       <div className="absolute inset-0 -z-30">
         <Image
@@ -85,17 +107,16 @@ export default function Footer() {
         {/* Top Section */}
         <div className="flex flex-col items-center justify-center text-center gap-3 sm:gap-4 w-full px-4 lg:w-2/3 mx-auto">
           <h3 className="text-xs sm:text-sm font-normal text-white/85">
-            We reach you on time and serve you with trust.
+            {t("footer.slogan")}
           </h3>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-            Request More Information
+            {t("footer.title")}
           </h1>
-          <p className="text-xs sm:text-sm font-normal text-white/85 leading-5 sm:leading-6 w-full sm:w-5/6 md:w-2/3 mx-auto">
-            Do you want to book a trip, rent a car, check prices, or inquire
-            about transportation services within the Kingdom?
+          <p className="text-sm lg:text-base font-normal text-white/85 leading-5 sm:leading-6 w-full sm:w-5/6 md:w-2/3 mx-auto">
+            {t("footer.description")}
           </p>
           <Button className="text-primary-dark mt-3 sm:mt-4 mb-4 sm:mb-6 bg-white px-4 sm:px-6 py-4 sm:py-5 hover:bg-gray-100 hover:scale-[102%] transition-colors cursor-pointer text-xs sm:text-sm shadow-sm font-medium">
-            Contact Us
+            {t("footer.contact_button")}
           </Button>
         </div>
 
@@ -103,9 +124,17 @@ export default function Footer() {
         <div className="flex flex-col gap-4 w-11/12 mx-auto mt-4 sm:mt-0">
           <hr className="h-[1px] w-full sm:w-2/3 mx-auto bg-white/30" />
 
-          <div className="flex flex-col items-center space-y-4 sm:space-y-0 lg:flex-row justify-between w-full px-4 sm:px-6 py-4 gap-6">
+          <div
+            className={`flex flex-col items-center space-y-4 sm:space-y-0 ${
+              isRtl ? "lg:flex-row-reverse " : "lg:flex-row "
+            } justify-between w-full px-4 sm:px-6 py-4 gap-6`}
+          >
             {/* Logo */}
-            <div className="flex items-center gap-2 order-1 sm:order-none">
+            <div
+              className={`flex ${
+                isRtl ? "flex-row-reverse " : "flex-row "
+              } items-center gap-2 order-1 sm:order-none`}
+            >
               <Image
                 alt="White logo"
                 src={WhiteLogo}
@@ -116,13 +145,17 @@ export default function Footer() {
                 className="w-8 h-8 sm:w-9 sm:h-9"
               />
               <p className="text-white font-medium text-sm sm:text-base">
-                Di9at Al Wa9t
+                {t("footer.brand")}
               </p>
             </div>
 
-            {/* Links - centered on mobile */}
-            <div className="order-3 sm:order-none w-full sm:w-auto">
-              <OtherLinks />
+            {/* Links */}
+            <div
+              className={`order-3 ${
+                isRtl ? "lg:mr-20" : "lg:ml-20"
+              }  sm:order-none w-full sm:w-auto`}
+            >
+              <OtherLinks t={t} />
             </div>
 
             {/* Social Media Icons */}
@@ -135,7 +168,7 @@ export default function Footer() {
                   key={index}
                   Icon={link.Icon}
                   href={link.href}
-                  label={link.label}
+                  label={t(link.label)}
                 />
               ))}
             </nav>
@@ -143,7 +176,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-xs font-normal text-white/85 text-center pb-2 sm:pb-0">
-            All Rights Reserved © {new Date().getFullYear()} Dikat Al Wakt
+            {t("footer.rights_reserved", { year: new Date().getFullYear() })}
           </p>
         </div>
       </div>

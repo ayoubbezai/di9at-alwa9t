@@ -70,7 +70,7 @@ export default function Home() {
           <MostVisted t={t} isRtl={isRtl} />
           <OurClient t={t} isRtl={isRtl} />
           <MostAskedQuestions t={t} isRtl={isRtl} />
-          <Footer />
+          <Footer t={t} isRtl={isRtl} />
         </>
       )}
     </>

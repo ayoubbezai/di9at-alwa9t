@@ -34,7 +34,7 @@ export default function AboutUs({
     <section
       className={`flex flex-col-reverse  ${
         isRtl ? "md:flex-row-reverse" : "md:flex-row"
-      } items-center justify-between my-20 px-6 py-8 w-full max-w-7xl md:mx-6 lg:mx-auto   md:px-0 gap-36`}
+      } items-center justify-between my-8 px-6 py-8 w-full max-w-7xl md:mx-6 lg:mx-auto   md:px-0 gap-36`}
     >
       {/* Text Section */}
       <div

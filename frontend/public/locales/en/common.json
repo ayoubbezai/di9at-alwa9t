@@ -83,5 +83,22 @@
   },
   "most_asked": {
     "title": "Frequently Asked Questions"
+  },
+  "footer": {
+    "slogan": "We reach you on time and serve you with trust.",
+    "title": "Request More Information",
+    "description": "Do you want to book a trip, rent a car, check prices, or inquire about transportation services within the Kingdom?",
+    "contact_button": "Contact Us",
+    "privacy_policy": "Privacy Policy",
+    "terms_conditions": "Terms and Conditions",
+    "contact_us": "Contact Us",
+    "rights_reserved": "All Rights Reserved © {{year}} Dikat Al Wakt",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    },
+    "brand": "Di9at Al Wa9t"
   }
 }
